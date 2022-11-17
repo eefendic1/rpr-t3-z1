@@ -1,17 +1,21 @@
 package ba.unsa.etf.rpr;
 
+import java.util.Objects;
+
 public class MobilniBroj extends TelefonskiBroj{
-    private String mobilni;
+    private int mobilni;
+    private String broj;
     MobilniBroj(int mobilnaMreza, String broj){
-      mobilni="0"+ String.valueOf(mobilnaMreza)+ "/" +broj;
+      this.mobilni=mobilnaMreza;
+      this.broj=broj;
     }
     @Override
     public String ispisi() {
-        return mobilni;
+        return 0+mobilni+"/"+broj;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(mobilni);
     }
 }

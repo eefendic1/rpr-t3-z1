@@ -1,17 +1,22 @@
 package ba.unsa.etf.rpr;
 
+import java.util.Objects;
+
 public class MedunarodniBroj extends TelefonskiBroj{
-    private String medunarodni;
+    private final String drzava;
+    private final String broj;
     MedunarodniBroj(String drzava, String broj){
-        medunarodni=drzava+broj;
+        this.drzava=drzava;
+        this.broj=broj;
     }
     @Override
     public String ispisi() {
-        return medunarodni;
+
+        return drzava+broj;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(drzava,broj);
     }
 }

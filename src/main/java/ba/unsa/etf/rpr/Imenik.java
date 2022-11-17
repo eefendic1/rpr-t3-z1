@@ -3,20 +3,20 @@ package ba.unsa.etf.rpr;
 import java.util.*;
 
 public class Imenik {
-    private HashMap<String,TelefonskiBroj> imenik;
-    void dodaj(String ime, TelefonskiBroj broj){
+    private final HashMap<String,TelefonskiBroj> imenik;
+    public void dodaj(String ime, TelefonskiBroj broj){
        imenik.put(ime,broj);
     }
-    Imenik(){
+    public Imenik(){
         imenik=new HashMap<>();
     }
-    String dajBroj(String ime) throws ElementNijePronadjen {
+    public String dajBroj(String ime) throws ElementNijePronadjen {
         if(imenik.containsKey(ime)) {
             return imenik.get(ime).ispisi();
         }
         else throw new ElementNijePronadjen("Element nije pronadjen");
     }
-    String dajIme(TelefonskiBroj broj) throws ElementNijePronadjen{
+    public String dajIme(TelefonskiBroj broj) throws ElementNijePronadjen{
         if(imenik.containsValue(broj)) {
             for (Map.Entry<String, TelefonskiBroj> entry : imenik.entrySet()) {
                 if (entry.getValue().equals(broj)) return entry.getKey();
